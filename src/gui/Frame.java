@@ -2,6 +2,7 @@ package gui;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.*;
 
 import listener.*;
 import imageicon.*;
@@ -50,14 +51,20 @@ public class Frame extends JFrame {
         menu.setFont(new Font("SansSerif", Font.PLAIN, 16));
         menubar.add(menu);
 
-        menuitem.setPreferredSize(new Dimension(125, 25));
+        menuitem.setPreferredSize(new Dimension(200, 25));
         menuitem.setHorizontalTextPosition(SwingConstants.RIGHT);
+        menuitem.setMnemonic('Q');
+        menuitem.setAccelerator(KeyStroke.getKeyStroke('M', java.awt.Event.CTRL_MASK, false));
+        menuitem.setActionCommand("menuitem(ActionCommand)");
         menuitem.addActionListener(new Listener("menuitem"));
         menu.add(menuitem);
 
         menu.add(menu_in_menu);
         menu_in_menu.add(menuitem11);
         menu_in_menu.add(menuitem12);
+
+        menu.addSeparator();
+
         menu.add(menuitem2);
 
         Text_button.setText("Bao");
@@ -72,9 +79,20 @@ public class Frame extends JFrame {
         Icon_button.setContentAreaFilled(false);
         Icon_button.setBorderPainted(false);
         Icon_button.setBounds(110, 5, 96, 105);
+        Icon_button.addMouseListener(
+        new MouseAdapter() 
+        {   
+            public void mouseExited(MouseEvent e) 
+            {    
+                Icon_button.setIcon(imageIcon.getImageIcon("../res/image/bao.png", 96, 105));
+            }
+            public void mouseEntered(MouseEvent e) 
+            {
+                Icon_button.setIcon(imageIcon.getImageIcon("../res/image/pressed_bao.png", 96, 105));
+            }
+        });
         Icon_button.addActionListener(new Listener("button"));
         add(Icon_button);
-
     }
 
     public void run()
