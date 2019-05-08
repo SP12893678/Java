@@ -43,18 +43,43 @@
     Color color = JColorChooser.showDialog (Component parentComponent, String title, Color initialColor);
     //(Color color 若點擊取消或關閉則回傳null)
     //(Color initialColor 初始選擇顏色,若填null,則默認非透明白色);
+    int alpha = color.getAlpha();
+    int r = color.getRed();
+    int g = color.getGreen();
+    int b = color.getBlue();
+    // 獲取顏色的ARGB各個分量值
     ```
 
 - JFileChooser Dialog
     ```java
     import javax.swing.JFileChooser;
     /*──────────────────────────────────────────*/
-    JFileChooser chooser = new JFileChooser(String path);
+    JFileChooser chooser = new JFileChooser();
+    chooser.setCurrentDirectory(File dir) //new File(String path)設置默認顯示路徑
+    chooser.setFileSelectionMode(int mode) //設置文件選擇模式
+    chooser.setMultiSelectionEnabled(boolean b) //設置能否同時選擇多個(默認不允許)
+    chooser.addChoosableFileFilter(FileFilter filter) //添加可供用戶選擇的文件過濾器添
+    chooser.setFileFilter(FileFilter filter)//設置默認使用的文件過濾器
+    chooser.setSelectedFile(File file) //設置默認被選擇的文件
+    int value = chooser.showOpenDialog(Component parent) //顯示開檔視窗
+    int value = chooser.showSaveDialog(Component parent) //顯示存檔視窗
+    /*──────────────────────────────────────────*/
+    - mode
+    JFileChooser.FILES_ONLY: //只能選擇文件
+    JFileChooser.DIRECTORIES_ONLY: //只能選擇資料夾
+    JFileChooser.FILES_AND_DIRECTORIES: //文件跟資料夾都能選
+    - FileFilter
+    new FileNameExtensionFilter("zip(*.zip, *.rar)", "zip", "rar");
+    new FileNameExtensionFilter("image(*.jpg, *.png, *.gif)", "jpg", "png", "gif");
+    - value
+    JFileChooser.CANCEL_OPTION: //點擊取消或關閉
+    JFileChooser.APPROVE_OPTION: //點擊確認或保存
+    JFileChooser.ERROR_OPTION: //出現錯誤
     ```
 
 - JDialog
     ```java
-    
+    import javax.swing.JDialog;
     /*──────────────────────────────────────────*/
-    
+    JDialog dialog = new JDialog(Dialog owner);
     ```

@@ -79,8 +79,7 @@ public class Frame extends JFrame {
         Icon_button.setContentAreaFilled(false);
         Icon_button.setBorderPainted(false);
         Icon_button.setBounds(110, 5, 96, 105);
-        Icon_button.addMouseListener(
-        new MouseAdapter() 
+        Icon_button.addMouseListener(new MouseAdapter() 
         {   
             public void mouseExited(MouseEvent e) 
             {    

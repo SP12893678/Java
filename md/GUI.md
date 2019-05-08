@@ -43,6 +43,19 @@
     String s = e.getActionCommand(); //透過此方法可取得當前的動作名稱
     menuitem.addActionListener(ActionListener listener); //設定選單項目點擊事件
     menu.add(menuitem); //將選單項目設定到選單上
+    
+    /*──────────────────────────────────────────*/
+    component.setAccelerator(KeyStroke.getKeyStroke('N', java.awt.Event.CTRL_MASK, false));
+    //設定快速鍵為Ctrl+S
+    component.setAccelerator(KeyStroke.getKeyStroke('S', KeyEvent.CTRL_MASK));
+    //設定快速鍵為Alt+S
+    component.setAccelerator(KeyStroke.getKeyStroke('S', KeyEvent.ALT_MASK));
+    //設定快速鍵為Shift+S
+    component.setAccelerator(KeyStroke.getKeyStroke('S', KeyEvent.SHIFT_MASK));
+    //設定快速鍵為Meta+S
+    component.setAccelerator(KeyStroke.getKeyStroke('S', KeyEvent.META_MASK));
+    //設定快速鍵為Alt+Enter
+    component.setAccelerator(KeyStroke.getKeyStroke(KeyEvent.VK_ENTER, KeyEvent.ALT_MASK));
     ```
 
 - JButton

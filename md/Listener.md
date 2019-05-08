@@ -27,8 +27,8 @@
         }
     }
     component.addActionListener(new Listener());
+    //依照上方方式可以不用新增一堆addActionListener,配合e.getActionCommand()與switch;可以節省許多[component.setActionCommand(String s);記得要設定]
     ```
-    > 依照上方方式可以不用新增一堆addActionListener,配合e.getActionCommand()與switch;可以節省許多[component.setActionCommand(String s);記得要設定]
 
 - MouseListener
     ```java
@@ -97,5 +97,6 @@
 
         }
     });
+    //在使用這3個function時可以加入int keyCode = e.getKeyCode(); 、 char KeyChar = e.getKeyChar() 來取得被使用的按鍵值或符號
     ```
-    > 在使用這3個function時可以加入int keyCode = e.getKeyCode(); 、 char KeyChar = e.getKeyChar() 來取得被使用的按鍵值或符號
+    
